@@ -8,3 +8,5 @@ Blueberry Pi utilities for raspberry pi
 `buttest.py` test four push buttons on LCD screen
 
 `pushbuttons.py` control logic for LCD screen buttons
+
+`splashimg.sh` display an image on the LCD screen frame buffer
