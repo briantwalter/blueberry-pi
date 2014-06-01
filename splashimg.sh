@@ -9,7 +9,8 @@
 
 ID=`id -u`
 IMG=$1
-CMD="/usr/bin/fbi -T 2 -d /dev/fb1 -noverbose -a ${IMG}"
+CMD="/usr/bin/fbi -T 2 -d /dev/fb1 -noverbose -a"
+DIR=/var/local/splash
 
 # check for root permissions
 if [ ${ID} != 0 ]; then
@@ -18,12 +19,16 @@ if [ ${ID} != 0 ]; then
 fi
 # make sure we got an argument
 if [ "${IMG}" == "" ]; then
-  echo "FATAL: usage $0 /path/to/image.jpg"
+  echo "FATAL: usage $0 </path/to/image.jpg> or <random>"
   exit 1
+fi
+# special case to show a random image
+if [ "${IMG}" == "random" ]; then
+  IMG=`ls ${DIR}/*.jpg | shuf -n 1`
 fi
 # check for image and show it
 if [ -f ${IMG} ]; then
-  ${CMD} > /dev/null 2>&1
+  ${CMD} ${IMG} > /dev/null 2>&1
 else
   echo "FATAL: ${IMG} is not a file"
 fi
