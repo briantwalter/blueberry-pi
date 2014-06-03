@@ -28,6 +28,7 @@ if [ "${IMG}" == "random" ]; then
 fi
 # check for image and show it
 if [ -f ${IMG} ]; then
+  killall -9 /usr/bin/fbi > /dev/null 2>&1
   ${CMD} ${IMG} > /dev/null 2>&1
 else
   echo "FATAL: ${IMG} is not a file"
