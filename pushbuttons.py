@@ -37,7 +37,7 @@ def main():
       input_state23 =  GPIO.input(23)
       if input_state23 == False:
         # display random 320x240 picture
-        subprocess.call('/var/local/bin/splashimg.sh random', shell=True)
+        subprocess.call('/var/local/bin/splashimg.sh catfact', shell=True)
       time.sleep(0.1)
     GPIO.cleanup()
 
