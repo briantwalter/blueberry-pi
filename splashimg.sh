@@ -11,7 +11,7 @@ ID=`id -u`
 IMG=$1
 CMD="/usr/bin/fbi -T 2 -d /dev/fb1 -noverbose -a"
 DIR=/var/local/splash
-CATAPI='http://ycf.apps.walternet.us/api'
+CATAPI='http://ycf.app.walternet.us/api'
 
 # check for root permissions
 if [ ${ID} != 0 ]; then
